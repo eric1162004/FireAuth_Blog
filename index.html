@@ -1,0 +1,192 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <title>My Blog</title>
+</head>
+<body class="white">
+
+  <!-- NAVBAR -->
+  <nav class="z-depth-0 blue darken-4">
+    <div class="nav-wrapper container">
+      <div class='brand-logo left'>
+        <a href="#">
+          <img src="img/blogLogo.png" style="width: 45px; margin-top: 8px;">
+          <span style="display: inline-block; position: absolute;">MyBlog</span>
+        </a>
+      </div>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li class="logged-in" style='display:none;'>
+            <a href="#" class="white-text modal-trigger" data-target="modal-account">Account</a>
+          </li>
+          <li class="logged-in" style='display:none;'>
+            <a href="#" class="white-text" id="logout">Logout</a>
+          </li>
+          <li class="admin" style='display:none;'>
+            <a href="#" class="white-text modal-trigger" data-target="modal-create">Create Post</a>
+          </li>
+          <li class="logged-out" style='display:none;'>
+            <a href="#" class="white-text modal-trigger" data-target="modal-login">Login</a>
+          </li>
+          <li class="logged-out" style='display:none;'>
+            <a href="#" class="white-text modal-trigger" data-target="modal-signup">Sign up</a>
+          </li>
+        </span>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- SIGN UP MODAL -->
+  <div id="modal-signup" class="modal">
+    <div class="modal-content">
+      <h4>Sign up</h4><br />
+      <form id="signup-form">
+        <div class="input-field">
+          <input type="email" id="signup-email" required />
+          <label for="signup-email">Email address</label>
+        </div>
+        <div class="input-field">
+          <input type="password" id="signup-password" required />
+          <label for="signup-password">Choose password</label>
+        </div>
+        <div class="input-field">
+          <input type="text" id="display-name" required />
+          <label for="display-name">Display name</label>
+        </div>
+        <button class="btn yellow darken-2 z-depth-0">Sign up</button>
+        <p class="error pink-text center-align"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- LOGIN MODAL -->
+  <div id="modal-login" class="modal">
+    <div class="modal-content">
+      <h4>Login</h4><br />
+      <form id="login-form">
+        <div class="input-field">
+          <input type="email" id="login-email" required />
+          <label for="login-email">Email address</label>
+        </div>
+        <div class="input-field">
+          <input type="password" id="login-password" required />
+          <label for="login-password">Your password</label>
+        </div>
+        <button class="btn yellow darken-2 z-depth-0">Login</button>
+        <p class="error pink-text center-align"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ACCOUNT MODAL -->
+  <div id="modal-account" class="modal">
+    <div class="modal-content center-align">
+      <h4>Account details</h4><br />
+      <div class="account-details"></div>
+    </div>
+  </div>
+
+  <!-- CREATE GUIDE MODAL -->
+  <div id="modal-create" class="modal">
+    <div class="modal-content">
+      <h4>Create Guide</h4><br />
+      <form id="create-form">
+        <div class="input-field">
+          <input type="text" id="title" required>
+          <label for="title">Guide Title</label>
+        </div>
+        <div class="input-field">
+          <textarea id="content" class="materialize-textarea" required></textarea>
+          <label for="content">Guide Content</label>
+        </div>
+        <button class="btn yellow darken-2 z-depth-0">Create</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- POST LIST -->
+  <div class="container" style="margin-top: 40px;">
+    <ul class="collapsible z-depth-0 posts" style="border: none;">
+    </ul>
+  </div>
+
+
+
+  <!-- Admin Section -->
+  <div class="container admin" style="display: none;">
+    <form class="admin-actions" style=" max-width: 300px; ">
+    <h3>Admin</h3>
+    <input type="email" placeholder='User email' id="admin-email" required>
+    <button class="btn-small yellow darken-2">Make admin</button>
+    </form>
+  </div>
+
+
+  <div class='container center-align flow-text'>
+      <p>This blog uses Firebase, Firestore, Fireauth, Materialize CSS, and Vanilla JavaScript.</p>
+    </div>
+
+  <!-- footer -->
+
+  <footer class="page-footer blue darken-2">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h2 class="yellow-text text-lighten-2">My Blog</h2>
+            <p class="flow-text grey-text text-lighten-4">“You don’t start out writing good stuff. You start out writing crap and thinking it’s good stuff, and then gradually you get better at it.
+                That’s why I say one of the most valuable traits is persistence.”
+                ― Octavia E. Butler</p>
+          </div>
+          <div class="col l4 offset-l1 s12">
+            <h2 class="white-text">       
+              <i class="material-icons large blue-text">person_pin</i>
+            </h2>
+     
+            <h5 class="yellow-text text-lighten-2">
+              Find me on social media
+            </h5>
+            <ul>
+              <li><a href="#" class="grey-text text-lighten-3">Facebook</a></li>
+              <li><a href="#" class="grey-text text-lighten-3">Twitter</a></li>
+              <li><a href="#" class="grey-text text-lighten-3">LinkedIn</a></li>
+              <li><a href="#" class="grey-text text-lighten-3">Instagram</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="footer-copyright white-text blue darken-4">
+        <div class="container">
+        © 2019 Copyright MyBlog
+        </div>
+      </div>
+    </footer>
+        
+
+
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-functions.js"></script>
+  <script src="scripts/firebase.js"></script>
+  
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="scripts/index.js"></script>
+  <script src="scripts/auth.js"></script>
+</body>
+</html>
